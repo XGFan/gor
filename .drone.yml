@@ -1,0 +1,13 @@
+kind: pipeline
+name: default
+type: kubernetes
+
+steps:
+  - name: build
+    image: golang:1.16
+    environment:
+      GOPROXY: https://registry.test4x.com/repository/go-proxy/
+    commands:
+      - cd cmd
+      - go build
+      - ls -alh
