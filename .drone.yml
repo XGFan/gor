@@ -23,3 +23,17 @@ steps:
       port: 22
       source: cmd/cmd
       target: ~/gor
+  - name: ssh deploy
+      image: appleboy/drone-ssh
+      settings:
+      host:
+        from_secret: server
+      username:
+        from_secret: username
+      key:
+        from_secret: ssh_key
+    port: 22
+    script:
+      - sudo mv gor/cmd/cmd /usr/local/bin/gor
+      - sudo service gor restart
+      - sudo systemctl status gor
