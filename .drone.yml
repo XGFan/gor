@@ -11,3 +11,15 @@ steps:
       - cd cmd
       - go build
       - ls -alh
+  - name: scp files
+    image: appleboy/drone-scp
+    settings:
+      host:
+        from_secret: server
+      username:
+        from_secret: username
+      key:
+        for_secret: ssh_key
+      port: 22
+      source: cmd/cmd
+      target: ~/gor
