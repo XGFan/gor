@@ -1,0 +1,20 @@
+[Unit]
+Description=GOR
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+Environment="gor_upstream={your upstream}"
+ExecStart=/usr/local/bin/gor
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
+#put in /etc/systemd/system/gor.service
+#sudo systemctl daemon-reload
+#sudo systemctl enable gor.service
+#sudo systemctl restart gor
