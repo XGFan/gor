@@ -19,7 +19,7 @@ steps:
       username:
         from_secret: username
       key:
-        for_secret: ssh_key
+        from_secret: ssh_key
       port: 22
       source: cmd/cmd
       target: ~/gor
