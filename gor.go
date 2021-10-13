@@ -109,8 +109,6 @@ func (u *UpstreamConf) TryUpdate(newIP string) {
 		} else {
 			log.Println("Current IP is still valid")
 		}
-	} else {
-		log.Println("Current IP is latest")
 	}
 }
 
